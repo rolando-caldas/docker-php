@@ -1,4 +1,4 @@
-FROM php-fpm-dev
+FROM rolandocaldas/php:dev
 
 # Install mysql
 RUN apt-get update && apt-get install -y mysql-client \
