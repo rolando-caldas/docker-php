@@ -1,4 +1,4 @@
-FROM rolandocaldas/php:7.2.11-dev
+FROM rolandocaldas/php:7.2-dev
 
 # Install mysql
 RUN apt-get update && apt-get install -y mysql-client \
