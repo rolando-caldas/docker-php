@@ -1,6 +1,6 @@
-FROM php:7.3.10-apache-stretch
+FROM php:7.3.10-fpm
 
-RUN a2enmod rewrite
+WORKDIR "/application"
 
 RUN apt-get update \
     && apt-get install -y git zip libzip-dev vim libicu-dev zlib1g-dev mysql-client libpng-dev libjpeg-dev libpq-dev \
@@ -12,9 +12,9 @@ RUN apt-get update \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Fix permission problems
-RUN usermod -u 1000 www-data
+RUN usermod -u 1000 www-data 
 
 RUN echo 'alias ll="ls -l"' >> ~/.bashrc
 RUN echo 'alias sf="php bin/console"' >> ~/.bashrc
 
-WORKDIR /var/www
+
